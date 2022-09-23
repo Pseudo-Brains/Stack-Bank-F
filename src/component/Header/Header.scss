@@ -1,0 +1,16 @@
+.head-Box {
+  background-color: #dde1e7;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  //   margin: auto;
+}
+.head-Box ul {
+  display: block;
+}
+.head-Box ul li {
+  display: inline-block;
+}
+.head-Box .logo {
+  text-decoration: none;
+}

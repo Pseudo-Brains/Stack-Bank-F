@@ -1,0 +1,72 @@
+// section .dashboard-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   background-color: red;
+// }
+
+.dashboard {
+  width: 90%;
+  border: 1px solid;
+  margin: 10px auto;
+  //   background-color: red;
+  display: flex;
+}
+.Dashboard-box-1 {
+  width: 15%;
+  border: 1px solid;
+}
+.dashboard-box-2 {
+  width: 40%;
+  border: 1px solid;
+  padding-block: 20px;
+}
+.dashboard-box-3 {
+  width: 45%;
+}
+.Dashboard-box-1 p:first-child {
+  color: green;
+  padding-block: 20px;
+}
+.dashboard p {
+  padding-block: 10px;
+  //   margin-left: 10px;
+  //   border: 1px solid;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+}
+.atm {
+  width: 90%;
+  height: 230px;
+  margin: auto;
+  border: 1px solid;
+  border-radius: 35px;
+  //   background-color: green;
+  //   inset: -9px -5px 6px;
+  //   padding: 20px;
+}
+.atm p {
+  padding: 80px 20px 0;
+}
+.acc-number {
+  width: 80%;
+  margin: 20px auto;
+  height: 50px;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+.acc-balance {
+  width: 90%;
+  height: 150px;
+  border: 1px solid;
+  margin: auto;
+  background-color: burlywood;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
