@@ -1,0 +1,47 @@
+.main-bank-container {
+  display: flex;
+  // background-color: blue;
+}
+.banking-box-one {
+  min-height: 60vh;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.bnk-ser-box {
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  flex-direction: column;
+  border: 1px solid;
+  min-height: 60%;
+  width: 95%;
+  // background-color: aqua;
+  margin: 10px auto;
+}
+
+.babking-ser {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  border: 1px solid;
+  height: 50px;
+  width: 80%;
+  margin: 10px auto;
+}
+.ser-box {
+  width: 80%;
+  height: 70px;
+  border: 1px solid;
+  margin: auto;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 600;
+}
+.banking-box-two {
+  width: 50%;
+}

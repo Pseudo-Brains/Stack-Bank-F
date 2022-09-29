@@ -6,11 +6,11 @@ import { FaHome } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Register, reset } from "../../features/auth/authSlice";
+import { register, reset } from "../../features/auth/authSlice";
 import "./register.scss";
 
 const Form = () => {
-  const { register, handleSubmit } = useForm();
+  const { Register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user, isLoading, isError, message, isSuccess } = useSelector(
@@ -30,7 +30,7 @@ const Form = () => {
 
   const onsubmit = (data) => {
     console.log(data);
-    dispatch(Register(data));
+    dispatch(register(data));
   };
 
   return (
@@ -48,28 +48,28 @@ const Form = () => {
           <label htmlFor="FirstName">
             FirstName:
             <input
-              {...register("firstname", { required: "This is required" })}
+              {...Register("firstname", { required: "This is required" })}
               placeholder="FirstName"
             />
           </label>
           <label htmlFor="LastName">
             LastName:
             <input
-              {...register("lastname", { required: "This is required" })}
+              {...Register("lastname", { required: "This is required" })}
               placeholder="LastName"
             />
           </label>
           <label htmlFor="Email">
             Email:
             <input
-              {...register("email", { required: "This is required" })}
+              {...Register("email", { required: "This is required" })}
               placeholder="Email"
             />
           </label>
           <label htmlFor="Password">
             Password:
             <input
-              {...register("password", { required: "This is required" })}
+              {...Register("password", { required: "This is required" })}
               placeholder="Password"
               type="password"
             />
@@ -77,14 +77,14 @@ const Form = () => {
           <label htmlFor="Phone">
             Phone:
             <input
-              {...register("phone", { required: "This is required" })}
+              {...Register("phone", { required: "This is required" })}
               placeholder="Phone"
             />
           </label>
           <label htmlFor="Date Of Birth">
             Date Of Birth:
             <input
-              {...register("dateOfBirth", { required: "This is required" })}
+              {...Register("dateOfBirth", { required: "This is required" })}
               type="date"
             />
           </label>
