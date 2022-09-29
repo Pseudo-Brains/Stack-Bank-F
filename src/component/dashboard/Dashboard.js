@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaUser, FaHome, FaBook, FaPhone } from "react-icons/fa";
+// import { Bank } from "../bamking/banking";
+import Banking from "../bamking/banking";
 import "./dashboard.scss";
 
 const Dashboard = () => {
@@ -15,39 +17,40 @@ const Dashboard = () => {
   }, [user, navigate]);
 
   return (
-    // <section className="dashboard-container">
-    <div className="dashboard">
-      <div className="Dashboard-box-1">
-        <p>
-          <FaUser />
-          Welcome {user && user.name}
-        </p>
-        <p>
-          <FaHome />
-          Dashboard
-        </p>
-        <p>
-          <FaBook />
-          Services
-        </p>
-        <p>
-          <FaPhone />
-          Customer Care
-        </p>
-      </div>
-      <div className="dashboard-box-2">
-        <div className="atm">
-          <p>Card No: **** **** **** *****</p>
+    <div className="dashboard-container">
+      <div className="dashboard">
+        <div className="Dashboard-box-1">
+          <p>
+            <FaUser />
+            Welcome {user && user.name}
+          </p>
+          <p>
+            <FaHome />
+            Dashboard
+          </p>
+          <p>
+            <FaBook />
+            Services
+          </p>
+          <p>
+            <FaPhone />
+            Customer Care
+          </p>
+        </div>
+        <div className="dashboard-box-2">
+          <div className="atm">
+            <p>Card No: **** **** **** *****</p>
+          </div>
+        </div>
+        <div className="dashboard-box-3">
+          <div className="acc-number">
+            Account Number: <b>{user && user.accountnumber}</b>
+          </div>
+          <div className="acc-balance">Balance :</div>
         </div>
       </div>
-      <div className="dashboard-box-3">
-        <div className="acc-number">
-          Account Number: <b>{user && user.accountnumber}</b>
-        </div>
-        <div className="acc-balance">Balance :</div>
-      </div>
+      <div className="transaction">{user && <Banking />}</div>
     </div>
-    // </section>
   );
 };
 
