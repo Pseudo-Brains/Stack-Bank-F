@@ -6,7 +6,7 @@ import { FaHome } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Login, reset } from "../../features/auth/authSlice";
+import { login, reset } from "../../features/auth/authSlice";
 
 const Loginf = () => {
   const { register, handleSubmit } = useForm();
@@ -29,10 +29,10 @@ const Loginf = () => {
 
   const onsubmit = (data) => {
     console.log(data);
-    dispatch(Login(data));
+    dispatch(login(data));
   };
 
-  return (
+  return ( 
     <div className="box-main">
       <div className="box">
         <div className="header">
