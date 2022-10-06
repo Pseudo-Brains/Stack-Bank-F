@@ -2,7 +2,7 @@ import axios from "axios";
 // import { logout } from "./authSlice";
 
 // register user
-const API_URL = "http://localhost:4040/api/register/";
+const API_URL = "http://localhost:4040/api/user/register/";
 
 const register = async (userData) => {
   const response = await axios.post(API_URL, userData);
@@ -14,7 +14,7 @@ const register = async (userData) => {
 };
 
 //login user
-const API_URL2 = "http://localhost:4040/api/login/";
+const API_URL2 = "http://localhost:4040/api/user/login/";
 
 const login = async (userData) => {
   const response = await axios.post(API_URL2, userData);
