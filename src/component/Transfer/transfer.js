@@ -1,18 +1,16 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
+// import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import { preTransfer, reset } from "../../features/bank/bankslice";
-// import { login, reset } from "../../features/auth/authSlice";
 
 const Transfer = () => {
   const { register, handleSubmit } = useForm();
-  const [pre, setPre] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,35 +23,13 @@ const Transfer = () => {
       toast.error(message);
     }
     if (isSuccess) {
-      navigate("/dashboard");
+      navigate("/transfer");
     }
     dispatch(reset());
   }, [isError, isLoading, message, navigate, dispatch, isSuccess]);
 
-  const handleChange = function (e) {
-    setPre(e.target.value);
-    let rhy = pre.length;
-    console.log(rhy);
-
-    if (rhy === 10) {
-      dispatch(preTransfer(pre));
-      //   useEffect(() => {
-      //     if (isError) {
-      //       toast.error(message);
-      //     }
-      //     if (isSuccess || user) {
-      //       navigate("/dashboard");
-      //     }
-      //     dispatch(reset());
-      //   }, [user, isError, isLoading, message, navigate, dispatch, isSuccess]);
-    }
-  };
-
-  const submission = (data) => {
+  const onsubmit = (data) => {
     console.log(data);
-    console.log(data.account);
-
-    // dispatch(login(data));
   };
 
   return (
@@ -67,30 +43,34 @@ const Transfer = () => {
             </h1>
           </Link>
         </div>
-        <form onSubmit={handleSubmit(submission)}>
-          <label htmlFor="Amount">
+        <form onSubmit={handleSubmit(onsubmit)}>
+          <label htmlFor="amount">
             Amount:
-            <input
-              {...register("amount", { required: "This is required" })}
-              placeholder="Amount"
-            />
+            <input {...register("amount")} placeholder="amount" />
           </label>
-          <label htmlFor="Ac.no">
+          <label htmlFor="Password">
             Acc.No:
             <input
-              {...register("accountnumber", { required: "This is required" })}
-              placeholder="Acc.No"
+              {...register("accountnumber", {
+                onChange: (e) => {
+                  let rr = e.target.value;
+                  console.log(rr.length);
+                  if (rr.length === 11) {
+                    let dd = { [e.target.name]: parseInt(e.target.value) };
+                    // console.log(dd);
+                    dispatch(preTransfer(dd));
+                  }
+                },
+              })}
+              placeholder="Account Number"
               type="number"
-              value={pre}
-              onChange={handleChange}
-              // onChange={(e) =>() }
             />
           </label>
-          <label htmlFor="Description">
+          <label htmlFor="Password">
             Description:
             <input
               {...register("description", { required: "This is required" })}
-              placeholder="Description"
+              placeholder="Descrition"
             />
           </label>
           <label htmlFor="">
