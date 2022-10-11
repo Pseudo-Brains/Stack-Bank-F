@@ -36,10 +36,14 @@ export const preTransfer = createAsyncThunk(
   "bank/pretransfer",
   async (transferdata, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
-      const userInfo = thunkAPI.getState().auth.user.SecUSerInfo;
-
-      return await bankService.preTransfer(transferdata, token, userInfo);
+      let forb = parseInt(transferdata);
+      console.log(typeof forb);
+      // const token = thunkAPI.getState().auth.user.token;
+      // const userInfo = thunkAPI.getState().auth.user.SecUSerInfo;
+      let userAcc = {
+        accountnumber: parseInt(transferdata),
+      };
+      return await bankService.preTransfer(userAcc);
     } catch (error) {
       const message =
         (error.response &&

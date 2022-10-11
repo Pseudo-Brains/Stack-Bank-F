@@ -20,16 +20,12 @@ const Sendmoney = async (transferData, token, userInfo) => {
 const API4_URL = "http://localhost:4040/api/tx/pretransfer/";
 
 const preTransfer = async (transferData, token, userInfo) => {
+  // const Headers= {
+  //      token,
+  //      userInfo
+  //   }
 
-  
-  const config = {
-    Headers: {
-      Authorization: token,
-      Authentication: userInfo,
-    },
-  };
-
-  const response = await axios.post(API4_URL, transferData, config);
+  const response = await axios.post(API4_URL, transferData);
 
   return response.data;
 };
