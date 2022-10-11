@@ -1,25 +1,58 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { preTransfer, reset } from "../../features/bank/bankslice";
 // import { login, reset } from "../../features/auth/authSlice";
 
 const Transfer = () => {
   const { register, handleSubmit } = useForm();
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const { user, isLoading, isError, message, isSuccess } = useSelector(
-  //   (state) => state.auth
-  // );
-  // );
+  const [pre, setPre] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, isError, message, isSuccess } = useSelector(
+    (state) => state.bank
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      navigate("/dashboard");
+    }
+    dispatch(reset());
+  }, [isError, isLoading, message, navigate, dispatch, isSuccess]);
+
+  const handleChange = function (e) {
+    setPre(e.target.value);
+    let rhy = pre.length;
+    console.log(rhy);
+
+    if (rhy === 10) {
+      dispatch(preTransfer(pre));
+      //   useEffect(() => {
+      //     if (isError) {
+      //       toast.error(message);
+      //     }
+      //     if (isSuccess || user) {
+      //       navigate("/dashboard");
+      //     }
+      //     dispatch(reset());
+      //   }, [user, isError, isLoading, message, navigate, dispatch, isSuccess]);
+    }
+  };
 
   const submission = (data) => {
     console.log(data);
-    // console.log(data.);
+    console.log(data.account);
+
     // dispatch(login(data));
   };
 
@@ -45,9 +78,12 @@ const Transfer = () => {
           <label htmlFor="Ac.no">
             Acc.No:
             <input
-              {...register("account", { required: "This is required" })}
+              {...register("accountnumber", { required: "This is required" })}
               placeholder="Acc.No"
               type="number"
+              value={pre}
+              onChange={handleChange}
+              // onChange={(e) =>() }
             />
           </label>
           <label htmlFor="Description">
