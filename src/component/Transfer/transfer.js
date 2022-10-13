@@ -1,5 +1,6 @@
 import React from "react";
-// import { useState } from "react";
+import { useState } from "react";
+import "./transfer.scss";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
@@ -8,28 +9,51 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { preTransfer, reset } from "../../features/bank/bankslice";
+import { resety, transfer } from "../../features/send/sendslice";
 
 const Transfer = () => {
   const { register, handleSubmit } = useForm();
-
+  const [name, setName] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading, isError, message, isSuccess } = useSelector(
+
+  // selector for the pre transfer event
+  const { bank, isLoading, isError, message, isSuccess } = useSelector(
     (state) => state.bank
   );
 
+  // // useeffect for the pre transfer event
   useEffect(() => {
     if (isError) {
       toast.error(message);
     }
     if (isSuccess) {
       navigate("/transfer");
+      setName(bank.firstname);
     }
     dispatch(reset());
-  }, [isError, isLoading, message, navigate, dispatch, isSuccess]);
+  }, [bank, isError, isLoading, message, navigate, dispatch, isSuccess]);
+
+  // selector for the pre transfer event
+  const { send, isErr, isSucc, isLoad, mess } = useSelector(
+    (state) => state.send
+  );
+
+  useEffect(() => {
+    if (isErr) {
+      toast.error(mess);
+    }
+    if (isSucc) {
+      navigate("/dashboard");
+    }
+    dispatch(resety());
+  }, [send, isErr, isLoad, mess, navigate, dispatch, isSucc]);
+
+  console.log();
 
   const onsubmit = (data) => {
     console.log(data);
+    dispatch(transfer(data));
   };
 
   return (
@@ -48,16 +72,16 @@ const Transfer = () => {
             Amount:
             <input {...register("amount")} placeholder="amount" />
           </label>
-          <label htmlFor="Password">
+          <label htmlFor="AccountNumber">
             Acc.No:
             <input
               {...register("accountnumber", {
                 onChange: (e) => {
                   let rr = e.target.value;
-                  console.log(rr.length);
+                  // console.log(rr.length);
                   if (rr.length === 11) {
                     let dd = { [e.target.name]: parseInt(e.target.value) };
-                    // console.log(dd);
+                    console.log(dd);
                     dispatch(preTransfer(dd));
                   }
                 },
@@ -66,10 +90,14 @@ const Transfer = () => {
               type="number"
             />
           </label>
-          <label htmlFor="Password">
+          <div className="broda">
+            <span>{name}</span>
+            {/* <span>{name}</span> */}
+          </div>
+          <label htmlFor="Description">
             Description:
             <input
-              {...register("description", { required: "This is required" })}
+              {...register("message", { required: "This is required" })}
               placeholder="Descrition"
             />
           </label>
