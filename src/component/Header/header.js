@@ -37,14 +37,13 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link style={{ display: "block" }} to="/register">
+            <Link style={{ display: "inline-block" }} to="/register">
               Register
               <FaUser />
             </Link>
           </li>
         </>
       )}
-      <ul></ul>
     </div>
   );
 };
