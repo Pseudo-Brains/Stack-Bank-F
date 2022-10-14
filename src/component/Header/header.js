@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaHome } from "react-icons/fa";
 import "./Header.scss";
 
 const Header = () => {
@@ -17,25 +17,27 @@ const Header = () => {
 
   return (
     <div className="head-Box">
-      <div className="logo">
-        <Link to="/">starkbank</Link>
-      </div>
+      <p>
+        <Link style={{ textDecoration: "none", color: "blue" }} to="/dashboard">
+          <FaHome /> Starkbank
+        </Link>
+      </p>
       {user ? (
-        <li>
+        <li style={{ display: "block" }}>
           <button onClick={onlogout}>
-            <FaSignOutAlt />
+            <FaSignOutAlt /> logout
           </button>
         </li>
       ) : (
         <>
-          <li>
+          <li style={{ display: "block" }}>
             <Link to="/login">
               Login
               <FaSignInAlt />
             </Link>
           </li>
           <li>
-            <Link to="/register">
+            <Link style={{ display: "block" }} to="/register">
               Register
               <FaUser />
             </Link>

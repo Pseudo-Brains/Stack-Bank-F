@@ -1,25 +1,23 @@
-// section .dashboard-container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100%;
-//   background-color: red;
-// }
-
 .dashboard {
   width: 90%;
-  border: 1px solid;
+  // border: 1px solid;
+  background-color: rgb(113, 183, 196);
+
   margin: 10px auto;
-  //   background-color: red;
   display: flex;
+  // background-color: rgb(149, 204, 214);
 }
 .Dashboard-box-1 {
   width: 15%;
-  border: 1px solid;
+  box-shadow: inset -3px -3px 7px #11353a73,
+    inset 6px 7px 8px rgba(32, 44, 43, 0.288);
+  // border: 1px solid;
 }
 .dashboard-box-2 {
   width: 40%;
-  border: 1px solid;
+  // border: 1px solid;
+  background-color: rgb(113, 183, 196);
+
   padding-block: 20px;
 }
 .dashboard-box-3 {
@@ -31,17 +29,14 @@
 }
 .dashboard p {
   padding-block: 10px;
-  //   margin-left: 10px;
-  //   border: 1px solid;
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
 }
 .atm {
   width: 90%;
   height: 230px;
   margin: auto;
-  border: 1px solid;
+  box-shadow: inset -3px -3px 7px #11353a73,
+    inset 6px 7px 8px rgba(196, 224, 221, 0.288);
+  // border: 1px solid;
   border-radius: 35px;
   //   background-color: green;
   //   inset: -9px -5px 6px;
@@ -54,7 +49,9 @@
   width: 80%;
   margin: 20px auto;
   height: 50px;
-  background-color: antiquewhite;
+  // background-color: antiquewhite;
+  box-shadow: -3px -3px 7px #ffffff73, 6px 7px 8px rgba(94, 104, 121, 0.288);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,15 +60,17 @@
 .acc-balance {
   width: 90%;
   height: 150px;
-  border: 1px solid;
   margin: auto;
-  background-color: burlywood;
+  // background-color: burlywood;
+  box-shadow: -3px -3px 7px #ffffff73, 6px 7px 8px rgba(94, 104, 121, 0.288);
+
   display: flex;
   align-items: center;
+  border-radius: 30px;
   justify-content: center;
 }
 .transaction {
   width: 90%;
   margin: auto;
-  border: 1px solid;
+  // border: 1px solid;
 }

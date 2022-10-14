@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./transfer.scss";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
+
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -57,17 +56,13 @@ const Transfer = () => {
   };
 
   return (
-    <div className="box-main">
+    // <div className="dashboard">
+    <div className="box-main ggg">
       <div className="box">
-        <div className="header">
-          <p>Transfer</p>
-          <Link to="/">
-            <h1>
-              <FaHome />
-            </h1>
-          </Link>
+        <div className="header boxi">
+          <p style={{ fontSize: "30px", fontWeight: "400" }}>Transfer</p>
         </div>
-        <form onSubmit={handleSubmit(onsubmit)}>
+        <form className="formt" onSubmit={handleSubmit(onsubmit)}>
           <label htmlFor="amount">
             Amount:
             <input {...register("amount")} placeholder="amount" />
@@ -105,11 +100,9 @@ const Transfer = () => {
             <button>submit</button>
           </label>
         </form>
-        <span>
-          Not registered <Link to="/register">click</Link>here to register
-        </span>
       </div>
     </div>
+    // </div>
   );
 };
 
