@@ -1,6 +1,8 @@
 import axios from "axios";
+import { config } from "../../util/config";
+config.config();
 
-const API5_URL = "http://localhost:4040/api/tx/loan/";
+const API5_URL = `${config.API_URL}/tx/loan/`;
 
 const loan = async (transferData, token, SecUSerInfo) => {
   const config = {
@@ -14,7 +16,7 @@ const loan = async (transferData, token, SecUSerInfo) => {
   return response.data;
 };
 
-const API6_URL = "http://localhost:4040/api/tx/airtime/";
+const API6_URL = `${config.API_URL}/tx/airtime/`;
 
 const airtime = async (transferData, token, SecUSerInfo) => {
   const config = {

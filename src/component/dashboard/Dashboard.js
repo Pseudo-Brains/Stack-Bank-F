@@ -14,6 +14,7 @@ const Dashboard = () => {
   const dispath = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { main } = useSelector((state) => state.main);
+  console.log(main);
 
   useEffect(() => {
     console.log(user);

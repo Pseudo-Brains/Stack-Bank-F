@@ -1,6 +1,7 @@
 import axios from "axios";
+import { config } from "../../util/config";
 
-const API0_URL = "http://localhost:4040/api/user/";
+const API0_URL = `${config.API_URL}/user/`;
 
 const mainP = async (token) => {
   const config = {

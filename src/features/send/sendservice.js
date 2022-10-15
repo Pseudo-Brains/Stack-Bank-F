@@ -1,6 +1,8 @@
 import axios from "axios";
+import { config } from "../../util/config";
+config.config();
 
-const API4_URL = "http://localhost:4040/api/tx/transfer/";
+const API4_URL = `${config.API_URL}/tx/transfer/`;
 
 const Transfer = async (transferData, token, SecUSerInfo) => {
   const config = {
